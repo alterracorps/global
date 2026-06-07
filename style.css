@@ -1,100 +1,121 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #050b12;
-  color: #d7f3ff;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0a0f14;
+  color: #d6e4f0;
 }
 
+/* Top bar = corporate panel */
 header {
   display: flex;
   justify-content: space-between;
-  padding: 15px 20px;
-  background: rgba(10, 25, 40, 0.9);
-  border-bottom: 1px solid #1b3b55;
+  padding: 14px 24px;
+  background: rgba(18, 28, 38, 0.95);
+  border-bottom: 1px solid rgba(120, 180, 255, 0.15);
+  backdrop-filter: blur(8px);
 }
 
 .logo {
-  color: #4fd1ff;
-  font-weight: bold;
-  letter-spacing: 3px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #7cc7ff;
 }
 
+/* navigation = clean system links */
 nav a {
-  margin-left: 15px;
-  color: #d7f3ff;
+  margin-left: 18px;
+  color: #cfe6ff;
   text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.85;
 }
 
 nav a:hover {
-  color: #4fd1ff;
+  opacity: 1;
+  color: #7cc7ff;
 }
 
+/* hero = controlled corporate messaging */
 .hero {
   text-align: center;
-  padding: 70px 20px;
+  padding: 90px 20px;
 }
 
 .hero h1 {
-  color: #4fd1ff;
+  font-weight: 500;
+  color: #7cc7ff;
+  letter-spacing: 1px;
 }
 
+.hero p {
+  opacity: 0.75;
+}
+
+/* button = system action */
 button {
-  margin-top: 15px;
-  padding: 10px 16px;
-  background: #4fd1ff;
-  border: none;
+  margin-top: 18px;
+  padding: 10px 18px;
+  background: rgba(124, 199, 255, 0.12);
+  border: 1px solid rgba(124, 199, 255, 0.4);
+  color: #cfe6ff;
   cursor: pointer;
-  font-weight: bold;
+  border-radius: 4px;
+  transition: 0.2s;
 }
 
 button:hover {
-  background: #2bb6e6;
+  background: rgba(124, 199, 255, 0.2);
 }
 
+/* info cards = data panels */
 .info {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  padding: 30px;
+  gap: 18px;
+  padding: 40px;
   flex-wrap: wrap;
 }
 
 .card {
-  width: 240px;
-  padding: 15px;
-  background: rgba(20, 40, 60, 0.6);
-  border: 1px solid #1b3b55;
+  width: 260px;
+  padding: 18px;
+  background: rgba(18, 28, 38, 0.7);
+  border: 1px solid rgba(120, 180, 255, 0.15);
+  border-radius: 6px;
 }
 
+.card h2 {
+  color: #7cc7ff;
+  font-weight: 500;
+}
+
+/* portal = secure subsystem */
 .portal {
   text-align: center;
-  padding: 30px;
+  padding: 40px;
 }
 
 .terminal {
-  margin-top: 10px;
-  background: black;
-  color: #4fd1ff;
-  font-family: monospace;
-  padding: 15px;
+  margin-top: 12px;
+  padding: 16px;
+  background: rgba(8, 12, 18, 0.9);
+  border: 1px solid rgba(124, 199, 255, 0.3);
+  border-radius: 6px;
+  font-family: "Consolas", monospace;
+  color: #bfe2ff;
   height: 180px;
   overflow-y: auto;
-  border: 1px solid #4fd1ff;
 }
 
-.hidden {
-  display: none;
-}
-
-/* scanline effect */
-.scanlines {
+/* subtle overlay instead of hacker scanlines */
+body::before {
+  content: "";
   position: fixed;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    transparent,
-    transparent 2px,
-    rgba(255,255,255,0.02) 3px
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(124, 199, 255, 0.08),
+    transparent 60%
   );
+  pointer-events: none;
 }
