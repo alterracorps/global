@@ -1,27 +1,29 @@
 function enterPortal() {
-  document.getElementById("portal").classList.remove("hidden");
-
+  const portal = document.getElementById("portal");
   const terminal = document.getElementById("terminal");
 
-  const lines = [
-    "> Connecting to Alterra network...",
-    "> Verifying identity...",
-    "> ACCESS DENIED",
-    "> Attempting override...",
-    "> Welcome, USER.",
-    "> Loading restricted files...",
-    "> WARNING: Anomaly detected."
+  portal.classList.remove("hidden");
+
+  terminal.innerHTML = "";
+
+  const sequence = [
+    "[ALTERRA SYSTEMS]",
+    "Initializing secure interface...",
+    "Verifying user credentials...",
+    "Access tier: STANDARD",
+    "Loading corporate subsystem...",
+    "Welcome.",
+    "You are now connected to Alterra Network Services."
   ];
 
   let i = 0;
 
   const interval = setInterval(() => {
-    if (i < lines.length) {
-      terminal.innerHTML += "<br>" + lines[i];
+    if (i < sequence.length) {
+      terminal.innerHTML += sequence[i] + "<br>";
       i++;
     } else {
       clearInterval(interval);
-      terminal.innerHTML += "<br>> Connection unstable...";
     }
-  }, 700);
+  }, 900);
 }
