@@ -1,29 +1,16 @@
-function enterPortal() {
-  const portal = document.getElementById("portal");
-  const terminal = document.getElementById("terminal");
+const input = document.getElementById("searchInput");
+const entries = document.querySelectorAll(".entry");
 
-  portal.classList.remove("hidden");
+input.addEventListener("input", () => {
+  const query = input.value.toLowerCase();
 
-  terminal.innerHTML = "";
+  entries.forEach(entry => {
+    const text = entry.textContent.toLowerCase();
 
-  const sequence = [
-    "[ALTERRA SYSTEMS]",
-    "Initializing secure interface...",
-    "Verifying user credentials...",
-    "Access tier: STANDARD",
-    "Loading corporate subsystem...",
-    "Welcome.",
-    "You are now connected to Alterra Network Services."
-  ];
-
-  let i = 0;
-
-  const interval = setInterval(() => {
-    if (i < sequence.length) {
-      terminal.innerHTML += sequence[i] + "<br>";
-      i++;
+    if (text.includes(query)) {
+      entry.style.display = "block";
     } else {
-      clearInterval(interval);
+      entry.style.display = "none";
     }
-  }, 900);
-}
+  });
+});
